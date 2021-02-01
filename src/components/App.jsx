@@ -2,8 +2,15 @@ import React from "react";
 import emojipedia from "../emojipedia";
 import Card from "./Card";
 
-function emoji(term) {
-  return <Card />;
+function emojiCard(term) {
+  return (
+    <Card
+      key={term.id}
+      emoji={term.emoji}
+      name={term.name}
+      meaning={term.meaning}
+    />
+  );
 }
 
 function App() {
@@ -12,7 +19,7 @@ function App() {
       <h1>
         <span>emojipedia</span>
       </h1>
-      <Card />
+      {emojipedia.map(emojiCard)}
     </div>
   );
 }
